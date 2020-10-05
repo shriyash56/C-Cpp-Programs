@@ -11,14 +11,18 @@ public:
         int size();
         void operator=(cppArray c);
         int &operator[](int subscript);
+        cppArray(int size)
+        {
+          n = size;
+          for(int i=0;i<n;i++)
+          {
+             cp[i]=0;
+          }
+        }
 
 };
 istream &operator>>(istream&in,cppArray&c)
 {
- for(int i=0;i<c.n;i++)
-{
-c.cp[i]=0;
-}
  cout<<"\n Enter element of array:";
  for(int i=0;i<c.n;i++)
  {
@@ -59,9 +63,7 @@ int &cppArray::operator[](int subscript)
 
 int main()
 {
- cppArray c1,c2;
- c1.n = 5;
- c2.n = 5;
+ cppArray c1(5),c2(5);
  c1.size();
  cin>>c1;
  cout<<c1;
